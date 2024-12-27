@@ -6,10 +6,10 @@ class AnimatedInput extends StatefulWidget {
   final String text;
   final InputBuilder builder;
 
-  AnimatedInput({required this.text, required this.builder});
+  const AnimatedInput({super.key, required this.text, required this.builder});
 
   @override
-  _AnimatedInputState createState() => _AnimatedInputState();
+  State<AnimatedInput> createState() => _AnimatedInputState();
 }
 
 class _AnimatedInputState extends State<AnimatedInput>

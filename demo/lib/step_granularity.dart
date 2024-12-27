@@ -8,7 +8,7 @@ import 'utils.dart';
 class StepGranularityDemo extends StatelessWidget {
   final bool richText;
 
-  StepGranularityDemo(this.richText);
+  const StepGranularityDemo(this.richText, {super.key});
 
   @override
   Widget build(BuildContext context) {

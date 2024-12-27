@@ -8,7 +8,7 @@ import 'utils.dart';
 class PresetFontSizesDemo extends StatelessWidget {
   final bool richText;
 
-  PresetFontSizesDemo(this.richText);
+  const PresetFontSizesDemo(this.richText, {super.key});
 
   @override
   Widget build(BuildContext context) {

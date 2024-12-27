@@ -15,6 +15,8 @@ void main() {
 }
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -32,8 +34,10 @@ class App extends StatelessWidget {
 }
 
 class DemoApp extends StatefulWidget {
+  const DemoApp({super.key});
+
   @override
-  _DemoAppState createState() => _DemoAppState();
+  State<DemoApp> createState() => _DemoAppState();
 }
 
 List<MaterialColor> colors = [

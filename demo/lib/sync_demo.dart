@@ -7,10 +7,10 @@ import 'utils.dart';
 class SyncDemo extends StatefulWidget {
   final bool richText;
 
-  SyncDemo(this.richText);
+  const SyncDemo(this.richText, {super.key});
 
   @override
-  _SyncDemoState createState() => _SyncDemoState();
+  State<SyncDemo> createState() => _SyncDemoState();
 }
 
 class _SyncDemoState extends State<SyncDemo>

@@ -8,7 +8,7 @@ import 'utils.dart';
 class MinFontSizeDemo extends StatelessWidget {
   final bool richText;
 
-  MinFontSizeDemo(this.richText);
+  const MinFontSizeDemo(this.richText, {super.key});
 
   @override
   Widget build(BuildContext context) {
