@@ -20,4 +20,3 @@ class _AutoSizeGroupBuilderState extends State<AutoSizeGroupBuilder> {
     return widget.builder(context, _group);
   }
 }
-

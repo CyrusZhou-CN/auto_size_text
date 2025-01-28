@@ -76,7 +76,6 @@ void main() {
       widget: AutoSizeText(
         'Some Text',
         style: TextStyle(fontSize: 15),
-        textScaler: TextScaler.linear(4),
       ),
     );
   });
