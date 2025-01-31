@@ -184,6 +184,7 @@ class AutoSizeText extends StatefulWidget {
   /// This property also affects [minFontSize], [maxFontSize] and [presetFontSizes].
   ///
   /// The value given to the constructor as textScaleFactor. If null, will
+  // ignore: deprecated_member_use
   /// use the [MediaQueryData.textScaleFactor] obtained from the ambient
   /// [MediaQuery], or 1.0 if there is no [MediaQuery] in scope.
   final double? textScaleFactor;
@@ -315,6 +316,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
     );
 
     final userScale =
+        // ignore: deprecated_member_use
         widget.textScaleFactor ?? MediaQuery.textScaleFactorOf(context);
 
     int left;
@@ -379,6 +381,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         ),
         textAlign: widget.textAlign ?? TextAlign.left,
         textDirection: widget.textDirection ?? TextDirection.ltr,
+        // ignore: deprecated_member_use
         textScaleFactor: scale,
         maxLines: words.length,
         locale: widget.locale,
@@ -397,6 +400,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
       text: text,
       textAlign: widget.textAlign ?? TextAlign.left,
       textDirection: widget.textDirection ?? TextDirection.ltr,
+      // ignore: deprecated_member_use
       textScaleFactor: scale,
       maxLines: maxLines,
       locale: widget.locale,
@@ -422,6 +426,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         locale: widget.locale,
         softWrap: widget.softWrap,
         overflow: widget.overflow,
+        // ignore: deprecated_member_use
         textScaleFactor: 1,
         maxLines: maxLines,
         semanticsLabel: widget.semanticsLabel,
@@ -437,6 +442,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         locale: widget.locale,
         softWrap: widget.softWrap,
         overflow: widget.overflow,
+        // ignore: deprecated_member_use
         textScaleFactor: fontSize / style.fontSize!,
         maxLines: maxLines,
         semanticsLabel: widget.semanticsLabel,
