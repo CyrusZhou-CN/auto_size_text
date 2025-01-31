@@ -29,7 +29,7 @@ class AutoSizeText extends StatefulWidget {
     this.wrapWords = true,
     this.overflow,
     this.overflowReplacement,
-    this.textScale,
+    this.textScaleFactor,
     this.maxLines,
     this.semanticsLabel,
   })  : textSpan = null,
@@ -54,7 +54,7 @@ class AutoSizeText extends StatefulWidget {
     this.wrapWords = true,
     this.overflow,
     this.overflowReplacement,
-    this.textScale,
+    this.textScaleFactor,
     this.maxLines,
     this.semanticsLabel,
   })  : data = null,
@@ -183,10 +183,10 @@ class AutoSizeText extends StatefulWidget {
   ///
   /// This property also affects [minFontSize], [maxFontSize] and [presetFontSizes].
   ///
-  /// The value given to the constructor as textScaler. If null, will
-  /// use the [MediaQueryData.textScaler.scale(1)] obtained from the ambient
+  /// The value given to the constructor as textScaleFactor. If null, will
+  /// use the [MediaQueryData.textScaleFactor] obtained from the ambient
   /// [MediaQuery], or 1.0 if there is no [MediaQuery] in scope.
-  final double? textScale;
+  final double? textScaleFactor;
 
   /// An optional maximum number of lines for the text to span, wrapping if necessary.
   /// If the text exceeds the given number of lines, it will be resized according
@@ -315,7 +315,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
     );
 
     final userScale =
-        widget.textScale ?? MediaQuery.textScalerOf(context).scale(1);
+        widget.textScaleFactor ?? MediaQuery.textScaleFactorOf(context);
 
     int left;
     int right;
@@ -369,9 +369,9 @@ class _AutoSizeTextState extends State<AutoSizeText> {
 
   bool _checkTextFits(
       TextSpan text, double scale, int? maxLines, BoxConstraints constraints) {
-    final _textScaler = TextScaler.linear(scale);
     if (!widget.wrapWords) {
       final words = text.toPlainText().split(RegExp('\\s+'));
+
       final wordWrapTextPainter = TextPainter(
         text: TextSpan(
           style: text.style,
@@ -379,7 +379,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         ),
         textAlign: widget.textAlign ?? TextAlign.left,
         textDirection: widget.textDirection ?? TextDirection.ltr,
-        textScaler: _textScaler,
+        textScaleFactor: scale,
         maxLines: words.length,
         locale: widget.locale,
         strutStyle: widget.strutStyle,
@@ -397,7 +397,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
       text: text,
       textAlign: widget.textAlign ?? TextAlign.left,
       textDirection: widget.textDirection ?? TextDirection.ltr,
-      textScaler: _textScaler,
+      textScaleFactor: scale,
       maxLines: maxLines,
       locale: widget.locale,
       strutStyle: widget.strutStyle,
@@ -422,7 +422,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         locale: widget.locale,
         softWrap: widget.softWrap,
         overflow: widget.overflow,
-        textScaler: TextScaler.noScaling,
+        textScaleFactor: 1,
         maxLines: maxLines,
         semanticsLabel: widget.semanticsLabel,
       );
@@ -437,7 +437,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         locale: widget.locale,
         softWrap: widget.softWrap,
         overflow: widget.overflow,
-        textScaler: TextScaler.linear(fontSize / style.fontSize!),
+        textScaleFactor: fontSize / style.fontSize!,
         maxLines: maxLines,
         semanticsLabel: widget.semanticsLabel,
       );
