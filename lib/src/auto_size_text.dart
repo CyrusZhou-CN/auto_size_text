@@ -451,7 +451,9 @@ class _AutoSizeTextState extends State<AutoSizeText> {
   }
 
   void _notifySync() {
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
